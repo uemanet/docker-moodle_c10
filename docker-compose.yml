@@ -1,0 +1,41 @@
+version: '3.1'
+
+volumes:
+  # MySQL Data
+  moodle-mysql-data:
+    driver: local
+  moodle-moodledata:
+    driver: local
+
+services:
+  db:
+    image: mysql
+    container_name: moodle-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodle
+      MYSQL_PASSWORD: moodle123abc
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    volumes:
+      - moodle-mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+  web:
+    image: moodle:3.8
+    container_name: moodle-web
+    links:
+      - db
+    environment:
+      MOODLE_DB_TYPE: mysqli
+      MOODLE_DB_HOST: db
+      MOODLE_DB_NAME: moodle
+      MOODLE_DB_USER: moodle
+      MOODLE_DB_PASS: moodle123abc
+      MOODLE_DB_PREFIX: mdl_
+      MOODLE_URL: http://localhost:8080
+    volumes:
+      - moodle-moodledata:/var/www/moodledata
+    ports:
+      - "8080:80"
