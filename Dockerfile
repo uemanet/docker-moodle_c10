@@ -16,6 +16,8 @@ RUN cd /var/www/html/ && \
     rm /var/www/html/index.html && \
     git clone https://github.com/moodle/moodle -b ${MOODLE_BRANCH} . && \
     git clone https://github.com/willianmano/moodle-theme_moove theme/moove  && \
+    git clone https://github.com/mdjnelson/moodle-mod_customcert.git -b MOODLE_38_STABLE mod/customcert && \
+    git clone https://github.com/bozoh/moodle-mod_simplecertificate.git mod/simplecertificate && \
     mkdir /var/www/moodledata && \
     chmod 777 /var/www/moodledata && \
     mkdir /var/scripts
