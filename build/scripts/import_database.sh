@@ -1,5 +1,5 @@
 #!/bin/sh
 
-mysql -u ${MOODLE_DB_USER} --password=${MOODLE_DB_PASS} -h ${MOODLE_DB_HOST} ${MOODLE_DB_NAME} < moodle.sql
+PGPASSWORD=${MOODLE_DB_PASS} psql -h ${MOODLE_DB_HOST} -U ${MOODLE_DB_USER} -d ${MOODLE_DB_NAME} < c10.sql.dumpall
 
-rm moodle.sql
+rm c10.sql.dumpall

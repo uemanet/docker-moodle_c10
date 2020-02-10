@@ -42,20 +42,6 @@ Pronto, você já pode acessar sua instância do ambiente do Ciência é 10! As 
 >
 > Senha: **1234**
 
-Para criar uma instância vazia do Moodle(testes e curiosidades, não tem relação com o programa Ciência é 10), execute o comando abaixo:
-
-```sh
-$ make cleaninstall
-```
-
-As credenciais de acesso são:
-
-> URL http://localhost:8080
->
-> Usuário: **admin**
->
-> Senha: **soMePass123**
-
 Criado por: [Willian Mano](https://github.com/willianmano)
 
 Agradecimentos:

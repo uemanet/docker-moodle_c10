@@ -1,10 +1,3 @@
-cleaninstall:
-	echo "Subindo o container"
-	docker-compose up -d
-	echo "Instalando o moodle"
-	docker-compose exec web bash /var/scripts/install.sh
-	echo "Instalacao concluida com sucesso"
-
 init:
 	echo "Subindo o container"
 	docker-compose up -d

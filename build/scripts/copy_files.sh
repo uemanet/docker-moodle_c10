@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wget https://conecti.me/wp-content/uploads/2020/01/moodledata.tar.gz
+wget http://www.uemanet.uema.br/c10/moodledata.tar.gz
 
 tar -xvf moodledata.tar.gz
 
@@ -12,6 +12,6 @@ rm moodledata.tar.gz
 
 rm -Rf moodledata
 
-wget https://conecti.me/wp-content/uploads/2020/01/moodle.tar.gz
+wget http://www.uemanet.uema.br/c10/database.tar.gz
 
-tar -xvf moodle.tar.gz
+tar -xvf database.tar.gz

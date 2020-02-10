@@ -1,41 +1,38 @@
 version: '3.1'
 
 volumes:
-  # MySQL Data
-  moodle-mysql-data:
+  c10-postgres-data:
     driver: local
-  moodle-moodledata:
+  c10-moodledata:
     driver: local
 
 services:
   db:
-    image: mysql
-    container_name: moodle-db
-    command: --default-authentication-plugin=mysql_native_password
+    image: postgres
+    container_name: c10-db
     restart: always
     environment:
-      MYSQL_DATABASE: moodle
-      MYSQL_USER: moodle
-      MYSQL_PASSWORD: moodle123abc
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      POSTGRES_DB: c10
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: moodleC10123abc
     volumes:
-      - moodle-mysql-data:/var/lib/mysql
+      - c10-postgres-data:/var/lib/postgresql/data
     ports:
-      - "3307:3306"
+      - "5433:5432"
   web:
     image: moodle:3.8
-    container_name: moodle-web
+    container_name: c10-web
     links:
       - db
     environment:
-      MOODLE_DB_TYPE: mysqli
+      MOODLE_DB_TYPE: pgsql
       MOODLE_DB_HOST: db
-      MOODLE_DB_NAME: moodle
-      MOODLE_DB_USER: moodle
-      MOODLE_DB_PASS: moodle123abc
+      MOODLE_DB_NAME: c10
+      MOODLE_DB_USER: postgres
+      MOODLE_DB_PASS: moodleC10123abc
       MOODLE_DB_PREFIX: mdl_
       MOODLE_URL: http://localhost:8080
     volumes:
-      - moodle-moodledata:/var/www/moodledata
+      - c10-moodledata:/var/www/moodledata
     ports:
       - "8080:80"
