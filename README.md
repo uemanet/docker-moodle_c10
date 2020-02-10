@@ -23,8 +23,6 @@ Para a criação desta imagem utilizamos as seguintes tecnologias:
 
 Para facilitar a inicialização dos containers nós utilizamos o docker composer, todas as configurações podem ser visualizadas e alteradas no arquivo **docker-compose.yml**.
 
-Para facilitar ainda mais, foi criado um arquivo make com alguns comandos para instalação de uma instância do Moodle VAZIA, ou para efetuar a cópia do ambiente do Ciência é 10.
-
 Para criar os containers referentes ao ambiente do Ciência é 10, execute os comandos a seguir em ordem:
 
 ```sh
@@ -40,7 +38,7 @@ Pronto, você já pode acessar sua instância do ambiente do Ciência é 10! As 
 >
 > Usuário: **admin**
 >
-> Senha: **1234**
+> Senha: **@Mudar2018**
 
 Criado por: [Willian Mano](https://github.com/willianmano)
 
